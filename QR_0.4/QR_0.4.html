@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'TextTab')">Text to QR</button>
+            <button class="tablinks" onclick="openTab(event, 'WiFiTab')">WiFi to QR</button>
+            <button class="tablinks" onclick="openTab(event, 'URLTab')">URL to QR</button>
+        </div>
+        <div id="TextTab" class="tabcontent">
+            <input type="text" id="text-input" placeholder="Enter text here">
+            <button onclick="generateTextQRCode()">Generate QR Code</button>
+            <div id="text-qrcode"></div>
+        </div>
+        <div id="WiFiTab" class="tabcontent">
+            <input type="text" id="ssid-input" placeholder="Enter SSID">
+            <input type="text" id="password-input" placeholder="Enter password">
+            <select id="encryption-input">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None</option>
+            </select>
+            <button onclick="generateWiFiQRCode()">Generate QR Code</button>
+            <div id="wifi-qrcode"></div>
+        </div>
+        <div id="URLTab" class="tabcontent">
+            <input type="text" id="url-input" placeholder="Enter URL here">
+            <button onclick="generateURLQRCode()">Generate QR Code</button>
+            <div id="url-qrcode"></div>
+        </div>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script> -->
+    <script src="ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
