@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encode and Decode Tool</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2; /* Warna latar belakang untuk seluruh halaman */
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #007bff; /* Warna header */
+        color: #fff; /* Warna teks pada header */
+        padding: 10px 0;
+      }
+      footer {
+        background-color: #333; /* Warna footer */
+        color: #fff; /* Warna teks pada footer */
+        padding: 10px 0;
+      }
+      #container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff; /* Warna latar belakang untuk kontainer utama */
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      textarea {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+        resize: none;
+        /* Teks di textarea diatur ke tengah */
+        /* text-align: center;  */
+      }
+      textarea.input1,
+      textarea.input2 {
+        height: 200px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Encode and Decode Tool</h1>
+    </header>
+
+    <div id="container">
+      <form id="conversion-form">
+        <label for="input-data">Masukkan data:</label><br />
+        <textarea
+          class="input1"
+          id="input-data"
+          rows="5"
+          cols="50"
+          required
+        ></textarea>
+        <!-- <input type="text" id="input-data" required /><br /><br /> -->
+        <button type="button" id="encode-button">Encode</button>
+        <button type="button" id="decode-button">Decode</button><br /><br />
+        <label for="output-data">Hasil:</label><br />
+        <textarea
+          class="input2"
+          id="output-data"
+          rows="5"
+          cols="50"
+          readonly
+        ></textarea>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 Encode and Decode Tool</p>
+    </footer>
+
+    <script>
+      // Fungsi encode
+      function encodeData(data) {
+        return btoa(data);
+      }
+
+      // Fungsi decode
+      function decodeData(data) {
+        return atob(data);
+      }
+
+      // Event listener untuk tombol Encode
+      document
+        .getElementById("encode-button")
+        .addEventListener("click", function () {
+          const inputData = document.getElementById("input-data").value;
+          const encodedData = encodeData(inputData);
+          document.getElementById("output-data").value = encodedData;
+        });
+
+      // Event listener untuk tombol Decode
+      document
+        .getElementById("decode-button")
+        .addEventListener("click", function () {
+          const inputData = document.getElementById("input-data").value;
+          const decodedData = decodeData(inputData);
+          document.getElementById("output-data").value = decodedData;
+        });
+    </script>
+  </body>
+</html>
